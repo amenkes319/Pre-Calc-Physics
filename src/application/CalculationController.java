@@ -174,9 +174,9 @@ public class CalculationController
 			
 			case "Velocity at Height" :
 				return "h(t) = " + formattedInput + "\n" +
-//					   formattedInput
-					   (input == 0 ? "" : "0 = " + this.formula.getHeightZeroFormula(input)) + "\n"
-					   ;
+					   formattedInput + " = " + this.formula.getHeightFormula() + 
+					   (input == 0 ? "" : "0 = " + this.formula.getHeightZeroFormula(input)) + "\n" +
+					   "t = ";
 				
 //				answers = this.formula.getVelocityAtHeight(input);
 //				return answers.length == 1 ? answers[0] + " ft/s" : answers[0] + " ft/s and " + answers[1] + " ft/s";
