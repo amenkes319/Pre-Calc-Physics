@@ -111,16 +111,17 @@ public class CalculationController
 	private String answer(double input)
 	{
 		double[] answers;
+		String formattedInput = format(input);
 		switch (this.currentSelection)
 		{
 			case "Height at Time" :
-				return "h(" + input + ") = " + format(this.formula.getHeightAtTime(input)) + " ft";
+				return "h(" + formattedInput + ") = " + format(this.formula.getHeightAtTime(input)) + " ft";
 			
 			case "Height at Velocity" :
 				return "h(" + format(this.formula.getTimeAtVelocity(input)) + ") = " + format(this.formula.getHeightAtVelocity(input)) + " ft";
 			
 			case "Velocity at Time" :
-				return "v(" + input + ") = " + format(this.formula.getVelocityAtTime(input)) + " ft/s";
+				return "v(" + formattedInput + ") = " + format(this.formula.getVelocityAtTime(input)) + " ft/s";
 			
 			case "Velocity at Height" :
 				answers = this.formula.getVelocityAtHeight(input);
@@ -135,7 +136,7 @@ public class CalculationController
 				return "t = " + format(this.formula.getTimeAtVelocity(input)) + " sec";
 			
 			case "Max Height" :
-				return "h(" + format(this.formula.getTimeAtVelocity(0)) + ") = " + this.formula.getMaxHeight() + " ft";
+				return "h(" + format(this.formula.getTimeAtVelocity(0)) + ") = " + format(this.formula.getMaxHeight()) + " ft";
 			
 			case "Time to Max Height" :
 				return "t = " + format(this.formula.getTimeToMaxHeight()) + " sec";
@@ -154,25 +155,31 @@ public class CalculationController
 	private String work(double input)
 	{
 		double[] answers;
+		String formattedInput = format(input);
 		switch (this.currentSelection)
 		{
 			case "Height at Time" :
-				return "h(" + format(input) + ") = " + this.formula.getHeightFormula(input);
+				return "h(" + formattedInput + ") = " + this.formula.getHeightFormula(input);
 			
 			case "Height at Velocity" :
 				double time = this.formula.getTimeAtVelocity(input);
-				return "v(t) = " + format(input) + "\n" +
-					   format(input) + " = " + this.formula.getVelocityFormula() + "\n" +
-					   (input == 0 ? "" : "0 = " + format(this.formula.getInitVelocity() - input) + " - 32t" + "\n") +
+				return "v(t) = " + formattedInput + "\n" +
+				formattedInput + " = " + this.formula.getVelocityFormula() + "\n" +
+					   (input == 0 ? "" : "0 = " + this.formula.getVelocityZeroFormula(input) + "\n") +
 					   "t = " + format(time) + "\n" +
 					   "h(" + format(time) + ") = " + this.formula.getHeightFormula(time);
 			
 			case "Velocity at Time" :
-				return this.formula.getVelocityAtTime(input) + " ft/s";
+				return "v(" + formattedInput + ") = " + this.formula.getVelocityFormula(input);
 			
 			case "Velocity at Height" :
-				answers = this.formula.getVelocityAtHeight(input);
-				return answers.length == 1 ? answers[0] + " ft/s" : answers[0] + " ft/s and " + answers[1] + " ft/s";
+				return "h(t) = " + formattedInput + "\n" +
+//					   formattedInput
+					   (input == 0 ? "" : "0 = " + this.formula.getHeightZeroFormula(input)) + "\n"
+					   ;
+				
+//				answers = this.formula.getVelocityAtHeight(input);
+//				return answers.length == 1 ? answers[0] + " ft/s" : answers[0] + " ft/s and " + answers[1] + " ft/s";
 			
 			case "Time at Height" :
 				answers = this.formula.getTimeAtHeight(input);
