@@ -63,7 +63,6 @@ public class Formula
 	public double getHeightAtVelocity(double velocity)
 	{
 		double time = getTimeAtVelocity(velocity);
-		System.out.println(time);
 		return getHeightAtTime(time);
 	}
 	

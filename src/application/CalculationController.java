@@ -129,22 +129,22 @@ public class CalculationController
 			
 			case "Time at Height" :
 				answers = this.formula.getTimeAtHeight(input);
-				return "t = " + (answers.length == 1 ? answers[0] + " ft/s" : "t = " + answers[0] + " sec, t = " + answers[1] + " sec");
+				return "t = " + (answers.length == 1 ? format(answers[0]) + " ft/s" : format(answers[0]) + " sec, t = " + format(answers[1]) + " sec");
 			
 			case "Time at Velocity" :
-				return "t = " + this.formula.getTimeAtVelocity(input) + " sec";
+				return "t = " + format(this.formula.getTimeAtVelocity(input)) + " sec";
 			
 			case "Max Height" :
-				return "h(" + this.formula.getTimeAtVelocity(0) + ") = " + this.formula.getMaxHeight() + " ft";
+				return "h(" + format(this.formula.getTimeAtVelocity(0)) + ") = " + this.formula.getMaxHeight() + " ft";
 			
 			case "Time to Max Height" :
-				return "t = " + this.formula.getTimeToMaxHeight() + " sec";
+				return "t = " + format(this.formula.getTimeToMaxHeight()) + " sec";
 			
 			case "Time to Start Position" :
-				return "t = " + this.formula.getTimeToStartPosition() + " sec";
+				return "t = " + format(this.formula.getTimeToStartPosition()) + " sec";
 			
 			case "Time to Ground" :
-				return "t = " + this.formula.getTimeToGround() + " sec";
+				return "t = " + format(this.formula.getTimeToGround()) + " sec";
 			
 			default :
 				return "";
@@ -163,7 +163,7 @@ public class CalculationController
 				double time = this.formula.getTimeAtVelocity(input);
 				return "v(t) = " + format(input) + "\n" +
 					   format(input) + " = " + this.formula.getVelocityFormula() + "\n" +
-					   "0 = " + format(this.formula.getInitVelocity() - input) + " - 32t" + "\n" +
+					   (input == 0 ? "" : "0 = " + format(this.formula.getInitVelocity() - input) + " - 32t" + "\n") +
 					   "t = " + format(time) + "\n" +
 					   "h(" + format(time) + ") = " + this.formula.getHeightFormula(time);
 			
