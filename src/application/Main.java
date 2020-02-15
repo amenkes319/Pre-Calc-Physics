@@ -1,6 +1,7 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -12,6 +13,7 @@ public class Main extends Application
 	public void start(Stage primaryStage) 
 	{
 		Main.primaryStage = primaryStage;
+		Main.primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("icon.png")));
 		Main.primaryStage.show();
 		PromptController pc = new PromptController();
 		pc.show();

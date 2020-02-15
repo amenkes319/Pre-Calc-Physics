@@ -71,12 +71,12 @@ public class CalculationController
 			{
 				currentSelection = typeDropdown.getItems().get((Integer) number2);
 			
-				if (currentSelection.equals("Height at Time") || currentSelection.equals("Height at Velocity"))
-					inputTxtFld.setPromptText("Enter a height");
-				else if (currentSelection.equals("Velocity at Time") || currentSelection.equals("Velocity at Height"))
-					inputTxtFld.setPromptText("Enter a velocity");
-				else if (currentSelection.equals("Time at Height") || currentSelection.equals("Time at Velocity"))
-					inputTxtFld.setPromptText("Enter a time");
+				if (currentSelection.equals("Height at Time") || currentSelection.equals("Velocity at Time"))
+					inputTxtFld.setPromptText("Enter a Time");
+				else if (currentSelection.equals("Time at Height") || currentSelection.equals("Velocity at Height"))
+					inputTxtFld.setPromptText("Enter a Height");
+				else if (currentSelection.equals("Time at Velocity") || currentSelection.equals("Height at Velocity"))
+					inputTxtFld.setPromptText("Enter a Velocity");
 				else
 					inputTxtFld.setPromptText("");
 			
