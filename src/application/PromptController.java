@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class PromptController
 {
@@ -21,6 +20,8 @@ public class PromptController
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Prompt.fxml"));
 
             loader.setController(this);
+            Main.primaryStage.setResizable(false);
+            Main.primaryStage.setTitle("Calculations");
             Main.primaryStage.setScene(new Scene(loader.load()));
             Main.primaryStage.centerOnScreen();
         }

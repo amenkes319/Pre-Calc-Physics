@@ -35,8 +35,6 @@ public class CalculationController
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Calculations.fxml"));
 
             loader.setController(this);
-            Main.primaryStage.setResizable(false);
-            Main.primaryStage.setTitle("Calculations");
             Main.primaryStage.setScene(new Scene(loader.load()));
             Main.primaryStage.centerOnScreen();
             Main.primaryStage.show();
