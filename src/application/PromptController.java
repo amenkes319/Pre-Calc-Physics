@@ -21,7 +21,7 @@ public class PromptController
 
             loader.setController(this);
             Main.primaryStage.setResizable(false);
-            Main.primaryStage.setTitle("Calculations");
+            Main.primaryStage.setTitle("Pre-Calc Physics");
             Main.primaryStage.setScene(new Scene(loader.load()));
             Main.primaryStage.centerOnScreen();
         }

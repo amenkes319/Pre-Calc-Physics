@@ -59,7 +59,7 @@ public class Formula
 	
 	public String getTimeFormula(double height)
 	{
-		return "(" + Main.format(-this.initVelocity) + " +-  √[(" + Main.format(this.initVelocity) + ")² - 4(" + Main.format(this.acceleration / 2) + ")(" + Main.format(this.initHeight - height) + ")] / -32";
+		return "(" + Main.format(-this.initVelocity) + " +-  √[(" + Main.format(this.initVelocity) + ")² - 4(" + Main.format(this.acceleration / 2) + ")(" + Main.format(this.initHeight - height) + ")]) / -32";
 	}
 	
 	public double getHeightAtTime(double time)

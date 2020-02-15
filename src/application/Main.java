@@ -27,7 +27,5 @@ public class Main extends Application
 	public static void main(String[] args) 
 	{
 		launch(args);
-//		Formula x = new Formula(97, 72);
-//		System.out.println(x.getHeightAtVelocity(-82));
 	}
 }
