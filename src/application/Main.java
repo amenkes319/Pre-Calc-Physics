@@ -14,8 +14,14 @@ public class Main extends Application
 	public void start(Stage primaryStage) 
 	{
 		Main.primaryStage = primaryStage;
+		Main.primaryStage.show();
 		PromptController pc = new PromptController();
 		pc.show();
+	}
+	
+	public static String format(double d)
+	{
+		return (d == (int) d ? String.format("%d", (int) d) : String.format("%s", Math.round(d * 100000) / 100000.0));
 	}
 	
 	public static void main(String[] args) 

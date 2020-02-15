@@ -14,22 +14,15 @@ public class PromptController
 	@FXML private TextField heightTxtFld, velocityTxtFld;
 	@FXML private Button calculateBtn;
 	
-	private Stage stage;
-	
 	public void show()
 	{
-		this.stage = new Stage();
-		
 		try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Prompt.fxml"));
 
             loader.setController(this);
-            this.stage.setResizable(false);
-            this.stage.setTitle("Prompt");
-            this.stage.setScene(new Scene(loader.load()));
-            this.stage.centerOnScreen();
-            this.stage.show();
+            Main.primaryStage.setScene(new Scene(loader.load()));
+            Main.primaryStage.centerOnScreen();
         }
         catch(IOException e)
         {
@@ -45,7 +38,6 @@ public class PromptController
 		{
 			try
 			{
-				this.stage.close();
 				CalculationController cc = new CalculationController(new Formula(Double.valueOf(heightTxtFld.getText()), Double.valueOf(velocityTxtFld.getText())));
 				cc.show();
 			}

@@ -30,36 +30,36 @@ public class Formula
 
 	public String getHeightFormula()
 	{
-		return format(this.initHeight) + (this.initVelocity < 0 ? " - " : " + ") + format(Math.abs(this.initVelocity)) + "t - 16t²";
+		return Main.format(this.initHeight) + (this.initVelocity < 0 ? " - " : " + ") + Main.format(Math.abs(this.initVelocity)) + "t - 16tÂ²";
 	}
 	
 	public String getHeightFormula(double time)
 	{
-		return format(this.initHeight) + (this.initVelocity < 0 ? " - " : " + ") + format(Math.abs(this.initVelocity)) + "(" + format(time) + ") - 16(" + format(time) + ")²";
+		return Main.format(this.initHeight) + (this.initVelocity < 0 ? " - " : " + ") + Main.format(Math.abs(this.initVelocity)) + "(" + Main.format(time) + ") - 16(" + Main.format(time) + ")Â²";
 	}
 	
 	public String getHeightZeroFormula(double height)
 	{
-		return format(this.initHeight - height) + (this.initVelocity < 0 ? " - " : " + ") + format(Math.abs(this.initVelocity)) + "t - 16t²";
+		return Main.format(this.initHeight - height) + (this.initVelocity < 0 ? " - " : " + ") + Main.format(Math.abs(this.initVelocity)) + "t - 16tÂ²";
 	}
 	
 	public String getVelocityFormula()
 	{
-		return format(this.initVelocity) + " - 32t";
+		return Main.format(this.initVelocity) + " - 32t";
 	}
 	public String getVelocityFormula(double time)
 	{
-		return format(this.initVelocity) + " - 32(" + format(time) + ")";
+		return Main.format(this.initVelocity) + " - 32(" + Main.format(time) + ")";
 	}
 	
 	public String getVelocityZeroFormula(double velocity)
 	{
-		return format(this.initVelocity - velocity) + " - 32t";
+		return Main.format(this.initVelocity - velocity) + " - 32t";
 	}
 	
-	public String getTimeFormula(double a)
+	public String getTimeFormula(double height)
 	{
-		return null;
+		return "(" + Main.format(-this.initVelocity) + " +-  âˆš((" + Main.format(this.initVelocity) + ")Â² - 4(" + Main.format(this.acceleration / 2) + ")(" + Main.format(this.initHeight - height) + ")) / -32";
 	}
 	
 	public double getHeightAtTime(double time)
@@ -141,10 +141,5 @@ public class Formula
 	public double getVelocityAtGround()
 	{
 		return Math.round(getVelocityAtHeight(0)[0] * 100) / 100.0;
-	}
-	
-	private String format(double d)
-	{
-		return (d == (int) d ? String.format("%d", (int) d) : String.format("%s", d));
 	}
 }
